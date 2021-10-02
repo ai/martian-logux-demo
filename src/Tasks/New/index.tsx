@@ -13,7 +13,7 @@ export const TasksNew: FC = () => {
   }
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} className={classes.form}>
       <input className={classes.input} type="text" placeholder="New task" />
     </form>
   )

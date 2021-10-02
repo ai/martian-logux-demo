@@ -7,6 +7,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+button {
+  font-size: 16px;
+}
+
 body, input {
   font-size: 20px;
 }
