@@ -14,3 +14,12 @@ button {
 body, input {
   font-size: 20px;
 }
+
+.error {
+  font-size: 100px;
+  font-weight: bold;
+  color: #c00000;
+  padding-top: 30vh;
+  width: 100%;
+  text-align: center;
+}

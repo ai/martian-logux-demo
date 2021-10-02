@@ -345,6 +345,35 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@logux/client@npm:^0.13.3":
+  version: 0.13.3
+  resolution: "@logux/client@npm:0.13.3"
+  dependencies:
+    "@logux/actions": ^0.2.1
+    fast-json-stable-stringify: ^2.1.0
+    nanodelay: ^2.0.0
+    nanoevents: ^6.0.0
+    nanoid: ^3.1.24
+  peerDependencies:
+    "@logux/core": ^0.7.0
+    nanostores: ^0.4.3
+    preact: ">=10.0.0"
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+    vue: ">=3.2.4"
+  peerDependenciesMeta:
+    preact:
+      optional: true
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    vue:
+      optional: true
+  checksum: e907540efe19f37f6b272cd95d095fba7eceec55a13e009154f68f5b3281b5e45de3efe447040dee81fc85ae9a9f786b8fe71b1866a7de11aad421f4f5ebd09e
+  languageName: node
+  linkType: hard
+
 "@logux/core@npm:^0.7.2":
   version: 0.7.2
   resolution: "@logux/core@npm:0.7.2"
@@ -1127,6 +1156,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"fast-json-stable-stringify@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "fast-json-stable-stringify@npm:2.1.0"
+  checksum: b191531e36c607977e5b1c47811158733c34ccb3bfde92c44798929e9b4154884378536d26ad90dfecd32e1ffc09c545d23535ad91b3161a27ddbb8ebe0cbecb
+  languageName: node
+  linkType: hard
+
 "fast-redact@npm:^3.0.0":
   version: 3.0.2
   resolution: "fast-redact@npm:3.0.2"
@@ -1527,12 +1563,16 @@ fsevents@~2.3.2:
   version: 0.0.0-use.local
   resolution: "logux-demo@workspace:."
   dependencies:
+    "@logux/actions": ^0.2.1
+    "@logux/client": ^0.13.3
+    "@logux/core": ^0.7.2
     "@logux/server": ^0.10.4
     "@types/pino": ^6.3.11
     "@types/react": ^17.0.26
     "@types/react-dom": ^17.0.9
     "@types/ws": ^8.2.0
     "@vitejs/plugin-react": ^1.0.1
+    nanostores: ^0.4.8
     prettier: ^2.4.1
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -1733,26 +1773,47 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"nanodelay@npm:^2.0.1":
+"nanodelay@npm:^2.0.0, nanodelay@npm:^2.0.1":
   version: 2.0.1
   resolution: "nanodelay@npm:2.0.1"
   checksum: 2d65bd113b22997f66863b3792062e152cbdf9f8f7702a85e6d22ff531e9ee7080fbce70f5bece2f75bc4749f52af258493baf5dfe3e86029beafba3685f584e
   languageName: node
   linkType: hard
 
-"nanoevents@npm:^6.0.1":
+"nanoevents@npm:^6.0.0, nanoevents@npm:^6.0.1":
   version: 6.0.1
   resolution: "nanoevents@npm:6.0.1"
   checksum: 3e823bab0cc8663e0f7130466cb29885674486396cc8a443d2cd62cc2a031ff292a196c7080812fcee5422af3ddf31be8855321368c870e7441f0114e8a5efe0
   languageName: node
   linkType: hard
 
-"nanoid@npm:^3.1.25, nanoid@npm:^3.1.28":
+"nanoid@npm:^3.1.24, nanoid@npm:^3.1.25, nanoid@npm:^3.1.28":
   version: 3.1.28
   resolution: "nanoid@npm:3.1.28"
   bin:
     nanoid: bin/nanoid.cjs
   checksum: ae2fa9f3ce7a690ec62fc2fdf92345f023b20db760024f767c25ad392bde6414dc0b44a8e66dc1209426f36e4771e63b09ad2b49d8f1b04063b37e21b46af8d0
+  languageName: node
+  linkType: hard
+
+"nanostores@npm:^0.4.8":
+  version: 0.4.8
+  resolution: "nanostores@npm:0.4.8"
+  peerDependencies:
+    preact: ">=10.0.0"
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+    vue: ">=3.1.1"
+  peerDependenciesMeta:
+    preact:
+      optional: true
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    vue:
+      optional: true
+  checksum: 898619a86d3cbe3fbf88b8bd5a1006605924c1c408df445b05caa31c64cb9de97241d6fefa5fcf91a3f3e7fcdac15b3ba4779051ff30ac108e6a9098dc442e9f
   languageName: node
   linkType: hard
 

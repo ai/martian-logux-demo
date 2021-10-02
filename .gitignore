@@ -11,4 +11,5 @@ dist-ssr
 !.yarn/versions
 
 server/*.js
+server/modules/*.js
 protocol/*.js
