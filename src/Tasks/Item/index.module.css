@@ -1,0 +1,15 @@
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.text {
+  padding: 0.15em 0.25em;
+  flex-grow: 1;
+}
+
+input:checked + .text {
+  text-decoration: line-through;
+  color: gray;
+}

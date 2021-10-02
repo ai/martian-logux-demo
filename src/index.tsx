@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { FC } from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 
-export function App() {
-  return null
+import { Tasks } from './Tasks'
+
+const USER_ID = '10'
+
+const App: FC = () => {
+  return <Tasks userId={USER_ID} />
 }
 
 ReactDOM.render(

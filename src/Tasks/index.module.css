@@ -1,0 +1,15 @@
+.body {
+  box-sizing: border-box;
+  padding: 2em 0;
+  width: 30em;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.list {
+  padding: 0;
+  list-style: none;
+}
