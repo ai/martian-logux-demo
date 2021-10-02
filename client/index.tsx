@@ -2,6 +2,8 @@ import React, { FC } from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 
+import { SUBPROTOCOL } from '../protocol'
+
 import { Tasks } from './Tasks'
 
 const USER_ID = '10'

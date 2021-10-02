@@ -3,8 +3,6 @@
     "target": "ESNext",
     "useDefineForClassFields": true,
     "lib": [
-      "DOM",
-      "DOM.Iterable",
       "ESNext"
     ],
     "allowJs": false,
@@ -17,12 +15,8 @@
     "moduleResolution": "Node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
   },
   "include": [
-    "./client",
-    "./server",
-    "./protocol"
+    "./*.ts"
   ]
 }

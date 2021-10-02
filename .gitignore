@@ -9,3 +9,6 @@ dist-ssr
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+server/*.js
+protocol/*.js
