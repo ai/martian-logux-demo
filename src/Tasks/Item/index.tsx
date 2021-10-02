@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC, useState, ChangeEvent } from 'react'
 
 import { TasksItemEdit } from './Edit'
 import classes from './index.module.css'
@@ -12,15 +12,17 @@ export const TasksItem: FC<{
     setEditing(!editing)
   }
 
-  function onSave(text: string) {
+  function onCheck(e: ChangeEvent) {}
+
+  function onRename(text: string) {
     setEditing(false)
   }
 
   return (
     <li className={classes.item}>
-      <input type="checkbox" checked={finished} />
+      <input type="checkbox" checked={finished} onChange={onCheck} />
       {editing ? (
-        <TasksItemEdit initial={text} onSave={onSave} />
+        <TasksItemEdit initial={text} onSave={onRename} />
       ) : (
         <span className={classes.text}>{text}</span>
       )}
