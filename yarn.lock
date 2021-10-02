@@ -380,7 +380,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^17.0.0":
+"@types/react-dom@npm:^17.0.9":
   version: 17.0.9
   resolution: "@types/react-dom@npm:17.0.9"
   dependencies:
@@ -389,7 +389,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:^17.0.0":
+"@types/react@npm:*, @types/react@npm:^17.0.26":
   version: 17.0.26
   resolution: "@types/react@npm:17.0.26"
   dependencies:
@@ -407,7 +407,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitejs/plugin-react@npm:^1.0.0":
+"@vitejs/plugin-react@npm:^1.0.1":
   version: 1.0.1
   resolution: "@vitejs/plugin-react@npm:1.0.1"
   dependencies:
@@ -1181,13 +1181,13 @@ fsevents@~2.3.2:
   version: 0.0.0-use.local
   resolution: "logux-demo@workspace:."
   dependencies:
-    "@types/react": ^17.0.0
-    "@types/react-dom": ^17.0.0
-    "@vitejs/plugin-react": ^1.0.0
-    react: ^17.0.0
-    react-dom: ^17.0.0
-    typescript: ^4.3.2
-    vite: ^2.6.0
+    "@types/react": ^17.0.26
+    "@types/react-dom": ^17.0.9
+    "@vitejs/plugin-react": ^1.0.1
+    react: ^17.0.2
+    react-dom: ^17.0.2
+    typescript: ^4.4.3
+    vite: ^2.6.2
   languageName: unknown
   linkType: soft
 
@@ -1497,7 +1497,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^17.0.0":
+"react-dom@npm:^17.0.2":
   version: 17.0.2
   resolution: "react-dom@npm:17.0.2"
   dependencies:
@@ -1517,7 +1517,7 @@ fsevents@~2.3.2:
   languageName: node
   linkType: hard
 
-"react@npm:^17.0.0":
+"react@npm:^17.0.2":
   version: 17.0.2
   resolution: "react@npm:17.0.2"
   dependencies:
@@ -1781,7 +1781,7 @@ resolve@^1.20.0:
   languageName: node
   linkType: hard
 
-typescript@^4.3.2:
+typescript@^4.4.3:
   version: 4.4.3
   resolution: "typescript@npm:4.4.3"
   bin:
@@ -1791,7 +1791,7 @@ typescript@^4.3.2:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^4.3.2#~builtin<compat/typescript>":
+"typescript@patch:typescript@^4.4.3#~builtin<compat/typescript>":
   version: 4.4.3
   resolution: "typescript@patch:typescript@npm%3A4.4.3#~builtin<compat/typescript>::version=4.4.3&hash=32657b"
   bin:
@@ -1826,7 +1826,7 @@ typescript@^4.3.2:
   languageName: node
   linkType: hard
 
-"vite@npm:^2.6.0":
+"vite@npm:^2.6.2":
   version: 2.6.2
   resolution: "vite@npm:2.6.2"
   dependencies:
