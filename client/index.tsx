@@ -35,6 +35,10 @@ log(client)
 
 confirm(client)
 
+// Step 27: Use store extensions
+import { bindFinishAllTask } from './stores/task'
+bindFinishAllTask(client)
+
 // const App: FC = () => {
 //   return <Tasks userId={USER_ID} />
 // }

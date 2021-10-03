@@ -8,8 +8,15 @@ import classes from './index.module.css'
 import { useFilter } from '@logux/client/react'
 import { Task } from '../stores/task'
 
+// Step 24: Use finish all action
+import { useClient } from '@logux/client/react'
+import { finishAllTasks } from '../stores/task'
+
 export const Tasks: FC<{ userId: string }> = ({ userId }) => {
-  function finishAll() {}
+  let client = useClient()
+  function finishAll() {
+    finishAllTasks(client)
+  }
 
   // Step 11: Load tasks from server
   let tasks = useFilter(Task, { userId })
