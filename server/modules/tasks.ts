@@ -12,11 +12,7 @@ const [
   deletedTask
 ] = defineSyncMapActions<TaskValue>('tasks')
 
-let TASKS: TaskValue[] = []
-
-function getTask(id: string): TaskValue | undefined {
-  return TASKS.find(task => task.id === id)
-}
+export const TASKS: Map<string, TaskValue> = new Map()
 
 export default (server: Server) => {
   // Step 12: Add channel
@@ -30,19 +26,21 @@ export default (server: Server) => {
       return (otherCtx, otherAction) => otherCtx.userId === ctx.userId
     },
     load(ctx, action) {
-      return TASKS.filter(task => action.filter?.userId).map(task => {
-        let { id, ...fields } = task
-        return createTask({ id, fields })
-      })
+      return Array.from(TASKS.values())
+        .filter(task => action.filter?.userId)
+        .map(task => {
+          let { id, ...fields } = task
+          return createTask({ id, fields })
+        })
     }
   })
 
   server.channel<{ id: string }>('tasks/:id', {
     access(ctx) {
-      return getTask(ctx.params.id)?.userId === ctx.userId
+      return TASKS.get(ctx.params.id)?.userId === ctx.userId
     },
     load(ctx) {
-      let { id, ...fields } = getTask(ctx.params.id)!
+      let { id, ...fields } = TASKS.get(ctx.params.id)!
       return createTask({ id, fields })
     }
   })
@@ -54,7 +52,7 @@ export default (server: Server) => {
       return ctx.userId === action.fields.userId
     },
     async process(ctx, action) {
-      TASKS.push({ id: action.id, ...action.fields })
+      TASKS.set(action.id, { id: action.id, ...action.fields })
       await server.process(
         createdTask({ id: action.id, fields: action.fields })
       )
@@ -72,16 +70,10 @@ export default (server: Server) => {
 
   server.type(changeTask, {
     access(ctx, action) {
-      return ctx.userId === getTask(action.id)?.userId
+      return ctx.userId === TASKS.get(action.id)?.userId
     },
     async process(ctx, action) {
-      TASKS = TASKS.map(task => {
-        if (task.id === action.id) {
-          return { ...task, ...action.fields }
-        } else {
-          return task
-        }
-      })
+      TASKS.set(action.id, { ...TASKS.get(action.id)!, ...action.fields })
       await server.process(
         changedTask({ id: action.id, fields: action.fields })
       )
@@ -99,10 +91,10 @@ export default (server: Server) => {
 
   server.type(deleteTask, {
     access(ctx, action) {
-      return ctx.userId === getTask(action.id)?.userId
+      return ctx.userId === TASKS.get(action.id)?.userId
     },
     async process(ctx, action) {
-      TASKS = TASKS.filter(task => task.id !== action.id)
+      TASKS.delete(action.id)
       await server.process(deletedTask({ id: action.id }))
     }
   })
