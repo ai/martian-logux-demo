@@ -10,12 +10,12 @@ import { Task } from '../stores/task'
 
 // Step 24: Use finish all action
 import { useClient } from '@logux/client/react'
-import { finishAllTasks } from '../stores/task'
+import { finishAll } from '../stores/task'
 
 export const Tasks: FC<{ userId: string }> = ({ userId }) => {
   let client = useClient()
-  function finishAll() {
-    finishAllTasks(client)
+  function finishAllClick() {
+    finishAll(client)
   }
 
   // Step 11: Load tasks from server
@@ -41,7 +41,7 @@ export const Tasks: FC<{ userId: string }> = ({ userId }) => {
               />
             ))}
       </ul>
-      <button className={classes.all} onClick={finishAll}>
+      <button className={classes.all} onClick={finishAllClick}>
         Finish all tasks
       </button>
       <TasksNew userId={userId} />

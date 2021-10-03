@@ -20,6 +20,11 @@ export const [
   deletedTask
 ] = defineSyncMapActions<TaskValue>('tasks')
 
+export type CreateTask = ReturnType<typeof createTask>
+export type CreatedTask = ReturnType<typeof createdTask>
+export type DeleteTask = ReturnType<typeof deleteTask>
+export type DeletedTask = ReturnType<typeof deletedTask>
+
 // Step 22: Add action for finish all
 
-export const finishAllTasksAction = defineAction('tasks/finishAll')
+export const finishAllTasks = defineAction('tasks/finishAll')
