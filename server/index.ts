@@ -18,7 +18,7 @@ server.auth(({ userId, cookie }) => {
   if (userId === '10') {
     return true
   } else {
-    return cookie['token'] === `${userId}:good`
+    return cookie['token'] === 'good'
   }
 })
 

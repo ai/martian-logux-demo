@@ -10,7 +10,7 @@
     "@logux/actions": "^0.2.1",
     "@logux/client": "^0.13.3",
     "@logux/core": "^0.7.2",
-    "@logux/server": "^0.10.4",
+    "@logux/server": "^0.10.5",
     "nanodelay": "^2.0.1",
     "nanoid": "^3.1.28",
     "nanostores": "^0.4.8",
