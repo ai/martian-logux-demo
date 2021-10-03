@@ -27,13 +27,7 @@ export default (server: Server) => {
     },
     filter(ctx, action) {
       let filterId = action.filter?.userId as string
-      return (otherCtx, otherAction) => {
-        if (createdTask.match(otherAction)) {
-          return otherAction.fields.userId === filterId
-        } else {
-          return getTask(filterId)?.userId === ctx.userId
-        }
-      }
+      return (otherCtx, otherAction) => otherCtx.userId === ctx.userId
     },
     load(ctx, action) {
       return TASKS.filter(task => action.filter?.userId).map(task => {
