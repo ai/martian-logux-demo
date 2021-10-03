@@ -12,7 +12,7 @@ const [
   deletedTask
 ] = defineSyncMapActions<TaskValue>('tasks')
 
-const TASKS: TaskValue[] = []
+let TASKS: TaskValue[] = []
 
 function getTask(id: string): TaskValue | undefined {
   return TASKS.find(task => task.id === id)
@@ -20,6 +20,7 @@ function getTask(id: string): TaskValue | undefined {
 
 export default (server: Server) => {
   // Step 12: Add channel
+
   server.channel('tasks', {
     access(ctx, action) {
       return ctx.userId === action.filter?.userId
@@ -49,6 +50,75 @@ export default (server: Server) => {
     load(ctx) {
       let { id, ...fields } = getTask(ctx.params.id)!
       return createTask({ id, fields })
+    }
+  })
+
+  // Step 16: Add operations with tasks
+
+  server.type(createTask, {
+    access(ctx, action) {
+      return ctx.userId === action.fields.userId
+    },
+    async process(ctx, action) {
+      TASKS.push({ id: action.id, ...action.fields })
+      await server.process(
+        createdTask({ id: action.id, fields: action.fields })
+      )
+    }
+  })
+
+  server.type(createdTask, {
+    access() {
+      return false
+    },
+    resend(ctx, action) {
+      return ['tasks', `tasks/${action.id}`]
+    }
+  })
+
+  server.type(changeTask, {
+    access(ctx, action) {
+      return ctx.userId === getTask(action.id)?.userId
+    },
+    async process(ctx, action) {
+      TASKS = TASKS.map(task => {
+        if (task.id === action.id) {
+          return { ...task, ...action.fields }
+        } else {
+          return task
+        }
+      })
+      await server.process(
+        changedTask({ id: action.id, fields: action.fields })
+      )
+    }
+  })
+
+  server.type(changedTask, {
+    access() {
+      return false
+    },
+    resend(ctx, action) {
+      return ['tasks', `tasks/${action.id}`]
+    }
+  })
+
+  server.type(deleteTask, {
+    access(ctx, action) {
+      return ctx.userId === getTask(action.id)?.userId
+    },
+    async process(ctx, action) {
+      TASKS = TASKS.filter(task => task.id !== action.id)
+      await server.process(deletedTask({ id: action.id }))
+    }
+  })
+
+  server.type(deletedTask, {
+    access() {
+      return false
+    },
+    resend(ctx, action) {
+      return ['tasks', `tasks/${action.id}`]
     }
   })
 }

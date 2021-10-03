@@ -18,8 +18,8 @@ export const Tasks: FC<{ userId: string }> = ({ userId }) => {
     <div className={classes.body}>
       <ul className={classes.list}>
         {/*
-        <TasksItem text="First" finished={false} />
-        <TasksItem text="First" finished={true} />
+        <TasksItem id="1" text="First" finished={false} />
+        <TasksItem id="2" text="First" finished={true} />
         */}
         {tasks.isLoading
           ? 'Loading…'
@@ -28,6 +28,7 @@ export const Tasks: FC<{ userId: string }> = ({ userId }) => {
           : tasks.list.map(task => (
               <TasksItem
                 key={task.id}
+                id={task.id}
                 text={task.text}
                 finished={task.finished}
               />
