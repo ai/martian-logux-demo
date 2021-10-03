@@ -36,7 +36,7 @@ export const Tasks: FC<{ userId: string }> = ({ userId }) => {
       <button className={classes.all} onClick={finishAll}>
         Finish all tasks
       </button>
-      <TasksNew />
+      <TasksNew userId={userId} />
     </div>
   )
 }
