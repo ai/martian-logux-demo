@@ -9,7 +9,7 @@ import { CrossTabClient } from '@logux/client'
 import { SUBPROTOCOL } from '../protocol'
 
 // Step 6: Import widget
-import { badge, badgeEn } from '@logux/client'
+import { badge, badgeEn, log, confirm } from '@logux/client'
 import { badgeStyles } from '@logux/client/badge/styles'
 
 import { ClientContext, ChannelErrors } from '@logux/client/react'
@@ -25,11 +25,15 @@ const client = new CrossTabClient({
 
 client.start()
 
-// Step 7: Add widget
+// Step 7: Add widget, log and confirm
 badge(client, {
   messages: badgeEn,
   styles: badgeStyles
 })
+
+log(client)
+
+confirm(client)
 
 // const App: FC = () => {
 //   return <Tasks userId={USER_ID} />
