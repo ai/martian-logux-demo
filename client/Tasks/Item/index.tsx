@@ -4,9 +4,9 @@ import { TasksItemEdit } from './Edit'
 import classes from './index.module.css'
 
 // Step 17: Import Logux tools
-import { useClient } from '@logux/client/react'
-import { changeSyncMapById, deleteSyncMapById } from '@logux/client'
-import { Task } from '../../stores/task'
+// import { useClient } from '@logux/client/react'
+// import { changeSyncMapById, deleteSyncMapById } from '@logux/client'
+// import { Task } from '../../stores/task'
 
 export const TasksItem: FC<{
   id: string
@@ -19,23 +19,23 @@ export const TasksItem: FC<{
   }
 
   // Step 18: Get client
-  let client = useClient()
+  // let client = useClient()
 
   function onDelete() {
     // Step 19: Delete task
-    deleteSyncMapById(client, Task, id)
+    // deleteSyncMapById(client, Task, id)
   }
 
   function onCheck(e: ChangeEvent<HTMLInputElement>) {
     // Step 20: Change task finished
-    changeSyncMapById(client, Task, id, { finished: e.target.checked })
+    // changeSyncMapById(client, Task, id, { finished: e.target.checked })
   }
 
   function onRename(text: string) {
     setEditing(false)
 
     // Step 21: Change task finished
-    changeSyncMapById(client, Task, id, { text })
+    // changeSyncMapById(client, Task, id, { text })
   }
 
   return (

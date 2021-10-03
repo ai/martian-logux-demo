@@ -5,58 +5,57 @@ import { Tasks } from './Tasks'
 import './index.css'
 
 // Step 4: Import Logux Client and protocol
-import { CrossTabClient } from '@logux/client'
-import { SUBPROTOCOL } from '../protocol'
-
-// Step 6: Import widget
-import { badge, badgeEn, log, confirm } from '@logux/client'
-import { badgeStyles } from '@logux/client/badge/styles'
-
-import { ClientContext, ChannelErrors } from '@logux/client/react'
+// import { CrossTabClient } from '@logux/client'
+// import { SUBPROTOCOL } from '../protocol'
 
 const USER_ID = '10'
 
 // Step 5: Create client and connect
-const client = new CrossTabClient({
-  server: 'ws://localhost:31337',
-  subprotocol: SUBPROTOCOL,
-  userId: USER_ID
-})
+// const client = new CrossTabClient({
+//   server: 'ws://localhost:31337',
+//   subprotocol: SUBPROTOCOL,
+//   userId: USER_ID
+// })
+// client.start()
 
-client.start()
+// Step 6: Import widget
+// import { badge, badgeEn, log, confirm } from '@logux/client'
+// import { badgeStyles } from '@logux/client/badge/styles'
+
+// import { ClientContext, ChannelErrors } from '@logux/client/react'
 
 // Step 7: Add widget, log and confirm
-badge(client, {
-  messages: badgeEn,
-  styles: badgeStyles
-})
+// badge(client, {
+//   messages: badgeEn,
+//   styles: badgeStyles
+// })
 
-log(client)
+// log(client)
 
-confirm(client)
+// confirm(client)
 
-// Step 27: Use store extensions
-import { bindFinishAllTask } from './stores/task'
-bindFinishAllTask(client)
-
-// const App: FC = () => {
-//   return <Tasks userId={USER_ID} />
-// }
-
-// Step 8: Add client to React and provide common error pages
-const Page403: FC = () => <div className="error">403</div>
-const Page404: FC = () => <div className="error">404</div>
-const Page500: FC = () => <div className="error">500</div>
+// Step 26: Use store extensions
+// import { bindFinishAllTask } from './stores/task'
+// bindFinishAllTask(client)
 
 const App: FC = () => {
-  return (
-    <ClientContext.Provider value={client}>
-      <ChannelErrors AccessDenied={Page403} NotFound={Page404} Error={Page500}>
-        <Tasks userId={USER_ID} />
-      </ChannelErrors>
-    </ClientContext.Provider>
-  )
+  return <Tasks userId={USER_ID} />
 }
+
+// Step 8: Add client to React and provide common error pages
+// const Page403: FC = () => <div className="error">403</div>
+// const Page404: FC = () => <div className="error">404</div>
+// const Page500: FC = () => <div className="error">500</div>
+
+// const App: FC = () => {
+//   return (
+//     <ClientContext.Provider value={client}>
+//       <ChannelErrors AccessDenied={Page403} NotFound={Page404} Error={Page500}>
+//         <Tasks userId={USER_ID} />
+//       </ChannelErrors>
+//     </ClientContext.Provider>
+//   )
+// }
 
 ReactDOM.render(
   <React.StrictMode>
